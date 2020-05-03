@@ -123,7 +123,9 @@ const styles = StyleSheet.create({
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: 14,
-        textAlign: 'auto'
+        textAlign: 'auto',
+        // backgroundColor: 'red',
+        maxWidth: 310,
     },
     bgImage: {
         flex: 1,

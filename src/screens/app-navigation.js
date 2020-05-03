@@ -8,11 +8,6 @@
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-
-import ProfileScreen from './profile/profile';
-import WelcomeScreen from './welcome/welcome';
-import ScanScreen from './qrcode_scanner/qrcode-scanner';
-import Loginscreen from './tbh/loginscreen';
 import SignInScreen from './tbh/signin';
 import ForgotPasswordScreen from './tbh/forgot_password';
 import SignUpScreen from './tbh/signup';
@@ -22,76 +17,71 @@ import SignUpProviderTwoScreen from './tbh/signup_provider_two';
 import SignUpProviderThreeScreen from './tbh/signup_provider_three';
 import SignUpProviderFourScreen from './tbh/signup_provider_four';
 import SignUpProviderFiveScreen from './tbh/signup_provider_five';
+import Header from './tbh/custom_header';
 
 const MainNavigator = createStackNavigator({
     SignIn: {
         screen: SignInScreen,
         navigationOptions: {
-            // title: 'Reset Password',
             headerShown: false,
-        }
-    },
-    ForgotPassword: {
-        screen: ForgotPasswordScreen,
-        navigationOptions: {
-            headerShown: true,
-            title: 'BACK TO LOGIN'
         }
     },
     SignUp: {
         screen: SignUpScreen,
-        navigationOptions: {
-            title: 'LOGIN',
+        navigationOptions: ({ navigation }) => ({
             headerShown: true,
-            headerBackTitle: 'eeee'
-        }
+            header: () => <Header HederText={'LOGIN'} navigation={navigation} />,
+        })
+    },
+    ForgotPassword: {
+        screen: ForgotPasswordScreen,
+        navigationOptions: ({ navigation }) => ({
+            headerShown: true,
+            header: () => <Header HederText={'BACK TO LOGIN'} navigation={navigation} />,
+        })
     },
     SignUpPatient: {
         screen: SignUpPatientScreen,
-        navigationOptions: {
+        navigationOptions: ({ navigation }) => ({
             headerShown: true,
-            title: 'ALREADY REGISTERED'
-        }
+            header: () => <Header HederText={'ALREADY REGISTERED'} navigation={navigation} />,
+        })
     },
     SignUpProviderOne: {
         screen: SignUpProviderOneScreen,
-        navigationOptions: {
+        navigationOptions: ({ navigation }) => ({
             headerShown: true,
-            title: 'ALREADY REGISTERED'
-        }
+            header: () => <Header HederText={'ALREADY REGISTERED'} navigation={navigation} />,
+        })
     },
     SignUpProviderTwo: {
         screen: SignUpProviderTwoScreen,
-        navigationOptions: {
+        navigationOptions: ({ navigation }) => ({
             headerShown: true,
-            title: 'SELECT AN AVATAR'
-        }
+            header: () => <Header HederText={'SELECT AN AVATAR'} navigation={navigation} />,
+        })
     },
     SignUpProviderThree: {
         screen: SignUpProviderThreeScreen,
-        navigationOptions: {
+        navigationOptions: ({ navigation }) => ({
             headerShown: true,
-            title: 'PERSONAL INFORMATION'
-        }
+            header: () => <Header HederText={'PERSONAL NFORMATION'} navigation={navigation} />,
+        })
     },
     SignUpProviderFour: {
         screen: SignUpProviderFourScreen,
-        navigationOptions: {
+        navigationOptions: ({ navigation }) => ({
             headerShown: true,
-            title: 'LOGIN INFORMATION'
-        }
+            header: () => <Header HederText={'LOGIN INFORMATION'} navigation={navigation} />,
+        })
     },
     SignUpProviderFive: {
         screen: SignUpProviderFiveScreen,
-        navigationOptions: {
+        navigationOptions: ({ navigation }) => ({
             headerShown: true,
-            title: 'BILLING INFORMATION'
-        }
-    },
-    Welcome: { screen: WelcomeScreen },
-    Profile: { screen: ProfileScreen },
-    ScanQRCode: { screen: ScanScreen },
-    LoginScreen: { screen: Loginscreen },
+            header: () => <Header HederText={'BILLING INFORMATION'} navigation={navigation} />,
+        })
+    }
 });
 
 const RootStack = createAppContainer(MainNavigator);
