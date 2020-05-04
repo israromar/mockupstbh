@@ -49,11 +49,9 @@ class SignUpProvider extends Component {
         }
     }
 
-    onClickListener = async (viewId, signInFlag) => {
+    onClickListener = async (viewId) => {
         const { navigate } = this.props.navigation;
-        if (viewId === 'login') {
-            navigate('SignUpProviderFour');
-        }
+        navigate('SignIn');
     };
 
     onChangeText = (val) => {
@@ -78,9 +76,7 @@ class SignUpProvider extends Component {
                         <View style={{
                             display: 'flex',
                             flexDirection: 'row',
-                            justifyContent: 'flex-start',
-                            // alignItems: 'flex-start',
-                            // backgroundColor:'red'
+                            justifyContent: 'flex-start'
                         }}>
                             <View style={[styles.inputContainerOne]}>
                                 <TextInput style={styles.inputs}
@@ -112,9 +108,9 @@ class SignUpProvider extends Component {
                             <Text style={{ color: '#ffff' }}>*NPI</Text>
                             <Text style={{ color: '#ffff' }}>*Age</Text>
                         </View>
-                        <InputFieldComponent placeholder={'Specializations'} secureTextEntry={true} keyboardType={'default'} onChangeText={this.onChangeText} />
-                        <InputFieldComponent placeholder={'Insurance Companies'} secureTextEntry={true} keyboardType={'default'} onChangeText={this.onChangeText} />
-                        <InputFieldComponent placeholder={'Conditions'} secureTextEntry={true} keyboardType={'default'} onChangeText={this.onChangeText} />
+                        <InputFieldComponent placeholder={'Specializations'} secureTextEntry={false} keyboardType={'default'} onChangeText={this.onChangeText} />
+                        <InputFieldComponent placeholder={'Insurance Companies'} secureTextEntry={false} keyboardType={'default'} onChangeText={this.onChangeText} />
+                        <InputFieldComponent placeholder={'Conditions'} secureTextEntry={false} keyboardType={'default'} onChangeText={this.onChangeText} />
 
                         <View style={styles.toggleBtnContainer}>
                             <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -132,8 +128,8 @@ class SignUpProvider extends Component {
                                     value={this.state.switchValueTwo} />
                             </View>
                         </View>
-                        <InputFieldComponent placeholder={'Initial Appointment Time'} secureTextEntry={true} keyboardType={'default'} onChangeText={this.onChangeText} />
-                        <InputFieldComponent placeholder={'Follow up Appointment Time'} secureTextEntry={true} keyboardType={'default'} onChangeText={this.onChangeText} />
+                        <InputFieldComponent placeholder={'Initial Appointment Time'} secureTextEntry={false} keyboardType={'default'} onChangeText={this.onChangeText} />
+                        <InputFieldComponent placeholder={'Follow up Appointment Time'} secureTextEntry={false} keyboardType={'default'} onChangeText={this.onChangeText} />
                         <View style={styles.checkboxContainer}>
                             <CheckBox
                                 value={this.state.isSelected}

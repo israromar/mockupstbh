@@ -33,22 +33,6 @@ class ForgotPasswordView extends Component {
 
     onClickListener = async (viewId, signInFlag) => {
         const { navigate } = this.props.navigation;
-        if (viewId === 'login') {
-            if (signInFlag === 'email') {
-                if (this.state.email && this.state.password) {
-                    this.setState({ showLoading: true })
-                    // this.handleLogin();
-                } else {
-                    Alert.alert("Enter email and password!");
-                }
-            }
-        } else if (viewId === 'signin_phone') {
-            navigate('PhoneAuth');
-        } else if (viewId === 'restore_password') {
-            navigate('ResetPassword');
-        } else {
-            navigate('SignUp');
-        }
     };
 
     render() {

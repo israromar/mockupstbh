@@ -17,7 +17,7 @@ import {
 import LogoComponent from './logo';
 import TopTextComponent from './topText';
 import InputFieldComponent from './input_fields';
-import ButtonComponent from './button';
+import NextTextComponent from './bottom_next_txt_comp';
 import bgone from '../../assets/images/background.png';
 
 class SignUpProvider extends Component {
@@ -59,13 +59,11 @@ class SignUpProvider extends Component {
                 </View>
                 <View style={{ marginTop: 30 }} >
                     <InputFieldComponent placeholder={'First Name'} secureTextEntry={false} keyboardType={'default'} onChangeText={this.onChangeText} />
-                    <InputFieldComponent placeholder={'Last Name'} secureTextEntry={true} keyboardType={'default'} onChangeText={this.onChangeText} />
-                    <InputFieldComponent placeholder={'-- Gender (m/f) --'} secureTextEntry={true} keyboardType={'default'} onChangeText={this.onChangeText} />
-                    <InputFieldComponent placeholder={'Phone Number'} secureTextEntry={true} keyboardType={'phone-pad'} onChangeText={this.onChangeText} />
+                    <InputFieldComponent placeholder={'Last Name'} secureTextEntry={false} keyboardType={'default'} onChangeText={this.onChangeText} />
+                    <InputFieldComponent placeholder={'-- Gender (m/f) --'} secureTextEntry={false} keyboardType={'default'} onChangeText={this.onChangeText} />
+                    <InputFieldComponent placeholder={'Phone Number'} secureTextEntry={false} keyboardType={'phone-pad'} onChangeText={this.onChangeText} />
                 </View>
-                <TouchableOpacity style={styles.nextTextView} onPress={() => this.onClickListener('next')}>
-                    <Text style={styles.nextText}>NEXT ></Text>
-                </TouchableOpacity>
+                <NextTextComponent top={5} onClickListener={this.onClickListener} />
             </View>
         );
     }

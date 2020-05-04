@@ -18,6 +18,7 @@ import LogoComponent from './logo';
 import TopTextComponent from './topText';
 import InputFieldComponent from './input_fields';
 import ButtonComponent from './button';
+import NextTextComponent from './bottom_next_txt_comp';
 import bgone from '../../assets/images/background.png';
 
 class SignUpProvider extends Component {
@@ -62,9 +63,7 @@ class SignUpProvider extends Component {
                     <InputFieldComponent placeholder={'Password'} secureTextEntry={true} keyboardType={'default'} onChangeText={this.onChangeText} />
                     <InputFieldComponent placeholder={'Confirm Password'} secureTextEntry={true} keyboardType={'default'} onChangeText={this.onChangeText} />
                 </View>
-                <TouchableOpacity style={styles.nextTextView} onPress={() => this.onClickListener('next')}>
-                    <Text style={styles.nextText}>NEXT ></Text>
-                </TouchableOpacity>
+                <NextTextComponent top={20} onClickListener={this.onClickListener} />
             </View>
         );
     }
@@ -86,17 +85,6 @@ const styles = StyleSheet.create({
     },
     checkbox: {
         alignSelf: "center",
-    },
-    nextText: {
-        // backgroundColor: 'red',
-        // height: 'auto',
-        color: '#ffff',
-        fontSize: 25,
-        fontWeight: 'bold'
-    },
-    nextTextView: {
-        // top: 30,
-        // height: 113
     },
     label: {
         margin: 8,

@@ -30,20 +30,10 @@ class LoginView extends Component {
         }
     };
 
-    onClickListener = async (viewId, signInFlag) => {
+    onClickListener = async (viewId) => {
         const { navigate } = this.props.navigation;
-        if (viewId === 'login') {
-            if (signInFlag === 'email') {
-                if (this.state.email && this.state.password) {
-                    this.setState({ showLoading: true })
-                    // this.handleLogin();
-                } else {
-                    Alert.alert("Enter email and password!");
-                }
-            }
-        } else if (viewId === 'signin_phone') {
-            navigate('PhoneAuth');
-        } else if (viewId === 'restore_password') {
+        if (viewId === 'login') { }
+        else if (viewId === 'restore_password') {
             navigate('ForgotPassword');
         } else {
             navigate('SignUp');
@@ -79,7 +69,7 @@ class LoginView extends Component {
                     <InputFieldComponent placeholder={'Password'} secureTextEntry={true} keyboardType={'default'} onChangeText={this.onChangeText} />
                 </View>
 
-                <ButtonComponent btnText={'LOGIN'} onClickListener={this.onClickListener} />
+                <ButtonComponent btnText={'LOGIN'} onClickListener={() => this.onClickListener('login')} />
 
                 <TouchableHighlight style={styles.buttonContainer}
                     onPress={() => this.onClickListener('restore_password')}>

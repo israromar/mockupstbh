@@ -14,8 +14,8 @@ import {
 // import colors from '../../styles/colors';
 import LogoComponent from './logo';
 import TopTextComponent from './topText';
-import InputFieldComponent from './input_fields';
-import ButtonComponent from './button';
+import NextTextComponent from './bottom_next_txt_comp';
+import NextIcon from '../../assets/images/next.svg';
 import bgone from '../../assets/images/background.png';
 import avatar from '../../assets/images/man.png';
 import pen from '../../assets/images/edit.png';
@@ -63,19 +63,13 @@ class SignUpProviderOne extends Component {
                     <Image style={styles.editIcon} source={pen} />
                     <Text style={styles.editText}>CHOOSE AN AVATAR</Text>
                 </TouchableOpacity>
-
-                <TouchableOpacity style={styles.nextTextView} onPress={() => this.onClickListener('next')}>
-                    <Text style={styles.nextText}>NEXT ></Text>
-                    {/* <Image style={styles.nextIcon} source={pen} /> */}
-                </TouchableOpacity>
-
+                <NextTextComponent top={100} onClickListener={this.onClickListener} />
             </View>
         );
     }
 }
 
 const resizeMode = 'cover';
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
